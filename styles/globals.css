@@ -160,35 +160,6 @@ body.custom-cursor-active button {
   animation-play-state: paused;
 }
 
-/* ─── 3D Team Card Flip ───────────────────────────────────────────────────── */
-.team-card-scene {
-  perspective: 1000px;
-}
-
-.team-card-inner {
-  transform-style: preserve-3d;
-  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.team-card-scene:hover .team-card-inner,
-.team-card-scene:focus-within .team-card-inner {
-  transform: rotateY(180deg);
-}
-
-.team-card-face {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.team-card-back {
-  transform: rotateY(180deg);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .team-card-inner {
-    transition: none;
-  }
-}
 
 /* ─── Sugar-high syntax tokens ────────────────────────────────────────────── */
 code.sh {
