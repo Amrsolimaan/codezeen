@@ -1,0 +1,321 @@
+{
+  "nav": {
+    "work": "Work",
+    "services": "Services",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "cta": "Start Project"
+  },
+  "home": {
+    "meta": {
+      "title": "Codezeen — Software Agency",
+      "description": "We build fast, beautiful, and scalable software for forward-thinking businesses."
+    },
+    "hero": {
+      "tagline": "Software agency for the next era",
+      "headline": "We build digital\nproducts that matter",
+      "subheadline": "From idea to launch — we craft fast, beautiful, and scalable software for forward-thinking businesses.",
+      "cta": "See Our Work",
+      "ctaSecondary": "Start a Project"
+    },
+    "marquee": {
+      "items": ["Next.js", "React", "TypeScript", "Node.js", "Python", "PostgreSQL", "Figma", "GSAP", "Tailwind CSS", "Sanity CMS", "React Native", "AWS"]
+    },
+    "stats": {
+      "projects": "50+",
+      "projectsLabel": "Projects Delivered",
+      "clients": "30+",
+      "clientsLabel": "Happy Clients",
+      "years": "5+",
+      "yearsLabel": "Years of Excellence",
+      "satisfaction": "98%",
+      "satisfactionLabel": "Client Satisfaction"
+    },
+    "featured": {
+      "title": "Featured Work",
+      "subtitle": "Selected projects that define our craft",
+      "viewAll": "View All Work"
+    },
+    "services": {
+      "title": "What We Do",
+      "subtitle": "End-to-end software solutions tailored to your vision"
+    },
+    "cta": {
+      "headline": "Ready to build something great?",
+      "subheadline": "Tell us about your project and let's make it happen.",
+      "button": "Start a Conversation"
+    }
+  },
+  "work": {
+    "meta": {
+      "title": "Our Work — Codezeen",
+      "description": "Explore our portfolio of web, mobile, and SaaS projects."
+    },
+    "title": "Our Work",
+    "subtitle": "Projects that push boundaries and create impact",
+    "filters": {
+      "all": "All",
+      "web": "Web",
+      "mobile": "Mobile",
+      "saas": "SaaS",
+      "design": "Design"
+    },
+    "viewProject": "View Project",
+    "liveLink": "Live Site",
+    "githubLink": "GitHub",
+    "noProjects": "No projects found.",
+    "prevProject": "Previous Project",
+    "nextProject": "Next Project",
+    "projectsCount": "{count} projects",
+    "galleryLabel": "Project gallery",
+    "viewMode": "View mode"
+  },
+  "services": {
+    "meta": {
+      "title": "Services — Codezeen",
+      "description": "From web apps to mobile products — comprehensive software solutions."
+    },
+    "title": "Our Services",
+    "subtitle": "Comprehensive software solutions from strategy to launch",
+    "learnMore": "Learn More",
+    "noServices": "Services coming soon.",
+    "process": {
+      "title": "How We Work",
+      "subtitle": "A proven process that turns ideas into shipped products",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Discovery",
+          "body": "We learn your goals, constraints, and audience. Stakeholder interviews, competitor analysis, and technical scoping in one focused sprint."
+        },
+        {
+          "number": "02",
+          "title": "Design",
+          "body": "Rapid prototyping and a design system built to scale. Every decision is tested against real user flows before a line of code is written."
+        },
+        {
+          "number": "03",
+          "title": "Build",
+          "body": "Clean, tested code shipped in two-week iterations. CI/CD from day one, transparent progress, and zero surprises at launch."
+        },
+        {
+          "number": "04",
+          "title": "Launch & Grow",
+          "body": "We deploy, monitor, and iterate. Performance baselines, error tracking, and ongoing support until you're confident and thriving."
+        }
+      ]
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "About — Codezeen",
+      "description": "Meet the team behind Codezeen — a software agency built on craft and care."
+    },
+    "title": "About Codezeen",
+    "subtitle": "Who we are and what drives us",
+    "mission": {
+      "title": "Our Mission",
+      "body": "We exist to help ambitious businesses ship software that works beautifully. No shortcuts, no bloat — just clean code and thoughtful design."
+    },
+    "team": {
+      "title": "The Team",
+      "empty": "Meet the team coming soon."
+    },
+    "values": {
+      "title": "Our Values",
+      "items": [
+        {
+          "number": "01",
+          "title": "Craft",
+          "body": "We obsess over the details others skip. Every pixel, every function, every edge case."
+        },
+        {
+          "number": "02",
+          "title": "Speed",
+          "body": "Fast iteration, not rushed code. We ship early and often without sacrificing quality."
+        },
+        {
+          "number": "03",
+          "title": "Honesty",
+          "body": "Transparent timelines, honest estimates, and hard truths delivered with respect."
+        },
+        {
+          "number": "04",
+          "title": "Impact",
+          "body": "We measure success by your results — not our deliverables."
+        }
+      ]
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog — Codezeen",
+      "description": "Thoughts on software, design, and building digital products."
+    },
+    "title": "Blog",
+    "subtitle": "Thoughts on software, design, and building for the web",
+    "readMore": "Read More",
+    "readingTime": "{minutes} min read",
+    "noPosts": "No posts yet. Check back soon.",
+    "loadMore": "Load More",
+    "relatedPosts": "Related Posts",
+    "backToBlog": "Back to Blog",
+    "filters": {
+      "all": "All",
+      "engineering": "Engineering",
+      "design": "Design",
+      "product": "Product",
+      "business": "Business",
+      "case-study": "Case Study"
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Start a Project — Codezeen",
+      "description": "Tell us about your project and let's build something great together."
+    },
+    "title": "Start a Project",
+    "subtitle": "Tell us about your vision",
+    "replyNote": "We reply within 24 hours. If you prefer email, reach us directly.",
+    "form": {
+      "name": "Your Name",
+      "namePlaceholder": "John Smith",
+      "email": "Email Address",
+      "emailPlaceholder": "john@company.com",
+      "company": "Company",
+      "companyPlaceholder": "Your Company (optional)",
+      "serviceType": "Service Type",
+      "serviceTypeOptions": {
+        "placeholder": "What do you need?",
+        "mobile": "Mobile App",
+        "web": "Web Platform",
+        "saas": "SaaS Product",
+        "design": "UI/UX Design",
+        "other": "Something Else"
+      },
+      "budget": "Budget Range",
+      "budgetOptions": {
+        "placeholder": "Select a range",
+        "under10k": "Under $10,000",
+        "10k25k": "$10,000 – $25,000",
+        "25k50k": "$25,000 – $50,000",
+        "50k100k": "$50,000 – $100,000",
+        "over100k": "$100,000+"
+      },
+      "message": "Project Details",
+      "messagePlaceholder": "Tell us about your project — what you're building, your timeline, and any specific requirements.",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "success": "Message sent! We'll be in touch within 24 hours.",
+      "error": "Something went wrong. Please try again or email us directly."
+    }
+  },
+  "privacy": {
+    "meta": {
+      "title": "Privacy Policy — Codezeen"
+    },
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: January 2025",
+    "intro": "Codezeen is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your information when you visit our website or engage our services.",
+    "sections": [
+      {
+        "title": "Information We Collect",
+        "body": "We collect information you provide directly, such as your name, email address, company name, and project details when you fill out our contact form. We also collect basic usage data (pages visited, time on site) through privacy-respecting analytics to improve our website."
+      },
+      {
+        "title": "How We Use Your Information",
+        "body": "We use your information solely to respond to your inquiry, scope your project, and communicate about our services. We never sell, rent, or share your personal data with third parties for marketing purposes."
+      },
+      {
+        "title": "Data Security",
+        "body": "All data transmitted through our website is encrypted via HTTPS. Contact form submissions are sent securely via Resend. We retain your contact information only as long as necessary to fulfill your request or maintain our business relationship."
+      },
+      {
+        "title": "Contact Us",
+        "body": "If you have any questions about this privacy policy or how we handle your data, please reach out to us at codezeeen@gmail.com. We will respond within 48 hours."
+      }
+    ]
+  },
+  "terms": {
+    "meta": {
+      "title": "Terms of Service — Codezeen"
+    },
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: January 2025",
+    "intro": "By accessing Codezeen's website or engaging our services, you agree to these terms. Please read them carefully before proceeding.",
+    "sections": [
+      {
+        "title": "Acceptance of Terms",
+        "body": "By using this website or signing a service agreement with Codezeen, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service and our Privacy Policy."
+      },
+      {
+        "title": "Services Description",
+        "body": "Codezeen provides custom software development, UI/UX design, mobile application development, SaaS product development, and related technology consulting services. The specific scope, deliverables, and timeline of each engagement are defined in individual project agreements."
+      },
+      {
+        "title": "Payment Terms",
+        "body": "Payment terms are outlined in each project's service agreement. Typically, projects require an upfront deposit before work begins, with remaining payments tied to agreed milestones. All invoices are due within 14 days of issuance unless otherwise stated."
+      },
+      {
+        "title": "Intellectual Property",
+        "body": "Upon receipt of full payment, all custom work product created specifically for your project becomes your property. Codezeen retains the right to display the work in our portfolio unless a separate non-disclosure agreement is in place. We retain ownership of any proprietary tools, frameworks, or components developed independently."
+      },
+      {
+        "title": "Limitation of Liability",
+        "body": "Codezeen's liability under any engagement is limited to the fees paid for that specific project. We are not liable for indirect, incidental, or consequential damages. We make no warranties beyond those explicitly stated in the project agreement."
+      },
+      {
+        "title": "Contact Us",
+        "body": "For questions about these terms or to discuss a project agreement, contact us at codezeeen@gmail.com. Changes to these terms will be posted on this page with an updated revision date."
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Building tomorrow's software, today.",
+    "navigation": {
+      "title": "Navigation",
+      "links": {
+        "work": "Work",
+        "services": "Services",
+        "about": "About",
+        "blog": "Blog",
+        "contact": "Contact"
+      }
+    },
+    "services": {
+      "title": "Services",
+      "links": {
+        "webDev": "Web Development",
+        "mobileDev": "Mobile Apps",
+        "saas": "SaaS Products",
+        "design": "UI/UX Design",
+        "consulting": "Tech Consulting"
+      }
+    },
+    "connect": {
+      "title": "Connect",
+      "email": "codezeeen@gmail.com",
+      "facebook": "Facebook",
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter / X"
+    },
+    "legal": {
+      "copyright": "© {year} Codezeen. All rights reserved.",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred. Please try again.",
+    "backToTop": "Back to top",
+    "close": "Close",
+    "menu": "Menu",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "externalLink": "Opens in a new tab",
+    "skipToContent": "Skip to main content",
+    "home": "Home"
+  }
+}

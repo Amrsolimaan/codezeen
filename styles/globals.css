@@ -1,0 +1,217 @@
+@import "tailwindcss";
+
+@theme {
+  /* Backgrounds */
+  --color-bg: #050D1A;
+  --color-surface: #0A1628;
+  --color-surface-2: #0F2040;
+
+  /* Brand */
+  --color-accent: #3B7DD8;
+  --color-logo-dark: #0A1F6E;
+  --color-logo-mid: #1A3FA8;
+  --color-accent-2: #1D9E75;
+
+  /* Text */
+  --color-text-1: #FFFFFF;
+  --color-text-2: #8BA8C4;
+  --color-text-3: #4A6580;
+
+  /* Typography — linked to Next.js font CSS variables */
+  --font-serif: var(--font-instrument-serif), "Instrument Serif", Georgia, serif;
+  --font-sans: var(--font-inter), Inter, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), "Geist Mono", "Courier New", monospace;
+}
+
+:root {
+  color-scheme: dark;
+
+  /* Opacity-based tokens not supported in @theme */
+  --color-accent-glow: rgba(59, 125, 216, 0.15);
+  --color-border: rgba(59, 125, 216, 0.12);
+  --color-border-hover: rgba(59, 125, 216, 0.35);
+}
+
+/* Sanity Studio exception — light surface */
+.sanity-light {
+  --color-bg: #F8F9FA;
+  --color-text-1: #0A1F6E;
+  --color-text-2: #4A5568;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-2);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Focus ring — accessible, on-brand */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── Liquid Cursor ───────────────────────────────────────────────────────── */
+@media (pointer: coarse) {
+  .liquid-cursor,
+  .liquid-cursor-dot { display: none; }
+}
+
+.liquid-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(59, 125, 216, 0.6);
+  pointer-events: none;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(59, 125, 216, 0.9);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition:
+    width 0.3s ease,
+    height 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    border-width 0.3s ease;
+  will-change: transform;
+}
+
+.liquid-cursor.is-hovering {
+  width: 80px;
+  height: 80px;
+  background: rgba(59, 125, 216, 0.1);
+  border: 1px solid rgba(59, 125, 216, 0.4);
+}
+
+.liquid-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(59, 125, 216, 0.8);
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+}
+
+/* Hide system cursor when custom cursor is active */
+body.custom-cursor-active,
+body.custom-cursor-active a,
+body.custom-cursor-active button {
+  cursor: none;
+}
+
+/* ─── Marquee ─────────────────────────────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+/* Container: fade edges via mask-image; pause strip on hover */
+.marquee-strip {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    white 8%,
+    white 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    white 8%,
+    white 92%,
+    transparent 100%
+  );
+}
+
+.marquee-strip:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* ─── 3D Team Card Flip ───────────────────────────────────────────────────── */
+.team-card-scene {
+  perspective: 1000px;
+}
+
+.team-card-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-card-scene:hover .team-card-inner,
+.team-card-scene:focus-within .team-card-inner {
+  transform: rotateY(180deg);
+}
+
+.team-card-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.team-card-back {
+  transform: rotateY(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-card-inner {
+    transition: none;
+  }
+}
+
+/* ─── Sugar-high syntax tokens ────────────────────────────────────────────── */
+code.sh {
+  font-family: var(--font-mono);
+}
+.sh-keyword   { color: #C792EA; }
+.sh-string    { color: #C3E88D; }
+.sh-comment   { color: #546E7A; font-style: italic; }
+.sh-number    { color: #F78C6C; }
+.sh-class     { color: #FFCB6B; }
+.sh-function  { color: #82AAFF; }
+.sh-identifier { color: #EEFFFF; }
+.sh-sign      { color: var(--color-text-3); }
+.sh-property  { color: #89DDFF; }
+.sh-entity    { color: #FF5370; }
+.sh-jsxliterals { color: #89DDFF; }
+
+/* ─── Animate pulse (skeleton) ────────────────────────────────────────────── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem D:\\\\works\\\\codezeen-web\\\\node_modules | Where-Object { $_.Name -in @\\('next-intl', 'gsap', 'motion', 'lenis', 'sanity', 'clsx', 'tailwind-merge', 'lucide-react', 'resend', 'zod'\\) } | Select-Object Name)",
+      "PowerShell(Rename-Item *)",
+      "PowerShell($m = Get-Content \"D:\\\\works\\\\codezeen-web\\\\node_modules\\\\motion\\\\package.json\" | ConvertFrom-Json; $m.version; $m.exports.PSObject.Properties.Name | Select-String \"react\")",
+      "PowerShell(node -e \"const l = require\\('D:/works/codezeen-web/node_modules/lucide-react/dist/cjs/lucide-react.js'\\); const keys = Object.keys\\(l\\).filter\\(k => /github|linkedin|twitter|x$/i.test\\(k\\)\\); console.log\\(keys.join\\(', '\\)\\)\")",
+      "PowerShell(node -e \"const l = require\\('D:/works/codezeen-web/node_modules/lucide-react/dist/cjs/lucide-react.js'\\); const keys = Object.keys\\(l\\).filter\\(k => !k.startsWith\\('Lucide'\\) && /^[A-Z]/.test\\(k\\)\\).sort\\(\\).filter\\(k => k.length < 20\\); console.log\\(keys.slice\\(0,80\\).join\\(', '\\)\\)\")",
+      "PowerShell(node -e \"const l = require\\('D:/works/codezeen-web/node_modules/lucide-react/dist/cjs/lucide-react.js'\\); const keys = Object.keys\\(l\\).filter\\(k => !k.startsWith\\('Lucide'\\) && !k.endsWith\\('Icon'\\) && /^[A-Z]/.test\\(k\\)\\).sort\\(\\); console.log\\(keys.filter\\(k => /git|link|twit|social|share/i.test\\(k\\)\\).join\\(', '\\)\\)\")",
+      "PowerShell(node -e \"const g = require\\('D:/works/codezeen-web/node_modules/gsap'\\); console.log\\(Object.keys\\(g\\).slice\\(0,10\\).join\\(', '\\)\\); console.log\\('version:', g.version ?? g.gsap?.version\\)\")",
+      "Bash(npx tsc *)",
+      "Bash(npx next *)",
+      "Bash(npm run *)",
+      "Bash(node -e \"const p=require\\('./package.json'\\); console.log\\(JSON.stringify\\({...p.dependencies,...p.devDependencies},null,2\\)\\)\")",
+      "Bash(node -e \"require\\('sharp'\\); console.log\\('ok'\\)\")",
+      "Bash(dir public *)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); deps={**d.get\\('dependencies',{}\\), **d.get\\('devDependencies',{}\\)}; [print\\(k,v\\) for k,v in deps.items\\(\\) if 'sanity' in k.lower\\(\\) or 'auth' in k.lower\\(\\)]\")",
+      "Bash(node *)"
+    ]
+  }
+}
