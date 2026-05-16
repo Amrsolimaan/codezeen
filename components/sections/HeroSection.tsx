@@ -30,7 +30,7 @@ export async function HeroSection({ locale }: HeroSectionProps) {
       />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-24 pt-36 lg:px-8">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-24 pt-20 sm:pt-28 lg:px-8 lg:pt-36">
 
         {/* Badge */}
         <ScrollReveal delay={0.05} margin="0px">

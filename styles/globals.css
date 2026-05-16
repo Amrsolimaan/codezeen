@@ -187,6 +187,44 @@ code.sh {
 .sh-entity    { color: #FF5370; }
 .sh-jsxliterals { color: #89DDFF; }
 
+/* ─── Team Flip Card ──────────────────────────────────────────────────────── */
+.team-flip-scene {
+  width: 100%;
+  perspective: 1200px;
+}
+
+.team-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.team-flip-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.team-flip-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.team-flip-back {
+  transform: rotateY(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-flip-inner {
+    transition: none !important;
+  }
+}
+
 /* ─── Animate pulse (skeleton) ────────────────────────────────────────────── */
 @keyframes pulse {
   0%, 100% { opacity: 1; }
