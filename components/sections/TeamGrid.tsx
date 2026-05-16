@@ -68,10 +68,11 @@ function TeamMemberCard({
   const [page, setPage] = useState(0);
 
   useEffect(() => {
-    if (!isFlipped) {
-      const timer = setTimeout(() => setPage(0), 400);
-      return () => clearTimeout(timer);
-    }
+    const timer = !isFlipped ? setTimeout(() => setPage(0), 400) : undefined;
+
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
   }, [isFlipped]);
 
   const role = locale === 'ar' ? (member.role.ar ?? member.role.en) : member.role.en;
