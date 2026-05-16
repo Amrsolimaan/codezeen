@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronUp, ChevronDown } from 'lucide-react';
 import { urlFor } from '@/sanity/lib/image';
 import { GithubIcon, LinkedinIcon, XIcon } from '@/components/ui/BrandIcons';
 
@@ -213,7 +213,7 @@ function TeamMemberCard({
                       className="flex h-8 w-8 items-center justify-center rounded-full border border-(--color-border) text-(--color-text-3) transition-colors hover:border-(--color-accent) hover:text-(--color-accent)"
                       aria-label="Previous page"
                     >
-                      <ChevronLeft size={16} className="rtl:rotate-180" />
+                      <ChevronUp size={16} />
                     </button>
                   ) : (
                     <div className="w-8" />
@@ -224,7 +224,7 @@ function TeamMemberCard({
                       className="flex h-8 w-8 items-center justify-center rounded-full border border-(--color-border) text-(--color-text-3) transition-colors hover:border-(--color-accent) hover:text-(--color-accent)"
                       aria-label="Next page"
                     >
-                      <ChevronRight size={16} className="rtl:rotate-180" />
+                      <ChevronDown size={16} />
                     </button>
                   ) : (
                     <div className="w-8" />
