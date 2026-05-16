@@ -5,6 +5,7 @@ import { MarqueeStrip } from '@/components/sections/MarqueeStrip';
 import { FeaturedWork } from '@/components/sections/FeaturedWork';
 import { ServicesAccordion } from '@/components/sections/ServicesAccordion';
 import { StatsCounter } from '@/components/sections/StatsCounter';
+import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
 import { CTASection } from '@/components/sections/CTASection';
 
 type Props = {
@@ -68,6 +69,7 @@ export default async function HomePage({ params }: Props) {
       <FeaturedWork locale={locale} />
       <ServicesAccordion locale={locale} />
       <StatsCounter />
+      <TestimonialsSection locale={locale} />
       <CTASection locale={locale} />
     </>
   );

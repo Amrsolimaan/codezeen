@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import * as LucideIcons from 'lucide-react';
 import type { LucideProps } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { Link } from '@/lib/navigation';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { SplitText } from '@/components/animations/SplitText';
 import { ProcessSteps } from '@/components/sections/ProcessSteps';
@@ -59,9 +61,11 @@ interface Service {
 function ServiceCard({
   service,
   locale,
+  learnMore,
 }: {
   service: Service;
   locale: string;
+  learnMore: string;
 }) {
   const title = locale === 'ar' ? (service.title.ar ?? service.title.en) : service.title.en;
   const desc =
@@ -74,15 +78,19 @@ function ServiceCard({
       : service.features?.en;
 
   return (
-    <div
+    <Link
+      href={`/services/${service.slug.current}` as '/services/[slug]'}
       className={cn(
-        'group flex h-full flex-col p-7 border border-[var(--color-border)]',
-        'bg-[var(--color-surface)]',
-        'transition-colors duration-300 hover:border-[var(--color-border-hover)] hover:bg-[var(--color-surface-2)]',
+        'group flex h-full flex-col p-7',
+        'border border-[var(--color-border)] bg-[var(--color-surface)]',
+        'transition-all duration-300',
+        'hover:-translate-y-1',
+        'hover:border-[var(--color-border-hover)] hover:bg-[var(--color-surface-2)]',
+        'hover:shadow-[0_12px_40px_-12px_rgba(59,125,216,0.2)]',
       )}
     >
       {/* Icon */}
-      <div className="mb-5 text-[var(--color-accent)]">
+      <div className="mb-5 text-[var(--color-accent)] transition-transform duration-300 group-hover:scale-110">
         <ServiceIcon name={service.icon} />
       </div>
 
@@ -93,16 +101,16 @@ function ServiceCard({
 
       {/* Short description */}
       {desc && (
-        <p className="mb-6 text-sm text-[var(--color-text-2)] leading-relaxed">{desc}</p>
+        <p className="mb-6 text-sm leading-relaxed text-[var(--color-text-2)]">{desc}</p>
       )}
 
       {/* Feature list */}
       {features && features.length > 0 && (
-        <ul className="mt-auto space-y-2" role="list">
+        <ul className="space-y-2" role="list">
           {features.map((feature, i) => (
             <li key={i} className="flex items-start gap-2 text-sm text-[var(--color-text-3)]">
               <span
-                className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]"
+                className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]"
                 aria-hidden="true"
               />
               {feature}
@@ -110,7 +118,24 @@ function ServiceCard({
           ))}
         </ul>
       )}
-    </div>
+
+      {/* Learn More */}
+      <div
+        className={cn(
+          'mt-auto flex items-center gap-1.5 pt-6',
+          'border-t border-[var(--color-border)] transition-colors duration-300',
+          'group-hover:border-[var(--color-border-hover)]',
+          'font-mono text-xs uppercase tracking-wider text-[var(--color-accent)]',
+        )}
+      >
+        {learnMore}
+        <ArrowRight
+          size={12}
+          aria-hidden="true"
+          className="transition-transform duration-200 group-hover:translate-x-1 rtl:rotate-180"
+        />
+      </div>
+    </Link>
   );
 }
 
@@ -172,7 +197,7 @@ export default async function ServicesPage({ params }: Props) {
             {services.map((service, i) => (
               <ScrollReveal key={service._id} delay={i * 0.08}>
                 <li className="h-full">
-                  <ServiceCard service={service} locale={locale} />
+                  <ServiceCard service={service} locale={locale} learnMore={t('learnMore')} />
                 </li>
               </ScrollReveal>
             ))}

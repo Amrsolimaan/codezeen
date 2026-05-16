@@ -29,8 +29,8 @@ export async function POST(request: Request) {
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     await resend.emails.send({
-      from: 'Codezeen Contact <contact@codezeen.com>',
-      to: 'hello@codezeen.com',
+      from: 'onboarding@resend.dev',
+      to: 'codezeeen@gmail.com',
       replyTo: data.email,
       subject: `New enquiry: ${data.name} — ${data.serviceType}`,
       text: [

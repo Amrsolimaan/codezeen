@@ -361,78 +361,111 @@ export default async function BlogPostPage({ params }: Props) {
     <article>
       <ReadingProgress />
 
-      {/* ── Cover image ───────────────────────────────────────────────────── */}
-      <div className="relative aspect-video max-h-[500px] overflow-hidden">
-        <Image
-          src={coverUrl}
-          alt={post.coverImage.alt ?? title}
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-          placeholder={coverBlur ? 'blur' : 'empty'}
-          blurDataURL={coverBlur}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] via-transparent to-transparent" />
+      {/* ── Back button ──────────────────────────────────────────────────── */}
+      <div className="mx-auto max-w-7xl px-6 pt-32 lg:px-8 lg:pt-40">
+        <Link
+          href="/blog"
+          aria-label={t('backToBlog')}
+          className={cn(
+            'inline-flex items-center gap-2 rounded-full px-5 py-2.5',
+            'border border-white/[0.12] bg-white/[0.04] backdrop-blur-md',
+            'font-mono text-xs text-white/55 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]',
+            'transition-all duration-200 hover:border-[var(--color-accent)]/45 hover:bg-[var(--color-accent)]/[0.08] hover:text-white',
+          )}
+        >
+          <ArrowLeft size={13} aria-hidden="true" className="rtl:rotate-180" />
+          {t('backToBlog')}
+        </Link>
+      </div>
+
+      {/* ── Hero: image + article info side-by-side ──────────────────────── */}
+      <div className="mx-auto max-w-7xl px-6 pb-4 pt-8 lg:px-8 lg:pt-12 lg:pb-6">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14 lg:items-center">
+
+          {/* Left — cover image with rounded corners */}
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl sm:aspect-[16/10]
+                          ring-1 ring-inset ring-white/[0.07] shadow-[0_24px_64px_rgba(0,0,0,0.55)]">
+            <Image
+              src={coverUrl}
+              alt={post.coverImage.alt ?? title}
+              fill
+              priority
+              className="object-cover transition-transform duration-700 hover:scale-[1.02]"
+              sizes="(max-width: 1024px) 100vw, 58vw"
+              placeholder={coverBlur ? 'blur' : 'empty'}
+              blurDataURL={coverBlur}
+            />
+          </div>
+
+          {/* Right — article metadata + title */}
+          <div className="flex flex-col">
+            {/* "Blog Post" decorative label */}
+            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/25 select-none">
+              {t('postLabel')}
+            </span>
+
+            {/* Category + reading time + date */}
+            <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2">
+              <span
+                className={cn(
+                  'rounded-full px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-widest',
+                  'bg-[var(--color-accent)]/[0.12] text-[var(--color-accent)]',
+                )}
+              >
+                {post.category}
+              </span>
+              <span className="font-mono text-xs text-white/35">
+                {t('readingTime', { minutes: post.readingTime })}
+              </span>
+              <span className="text-white/20" aria-hidden="true">·</span>
+              <time dateTime={post.publishedAt} className="font-mono text-xs text-white/35">
+                {date}
+              </time>
+            </div>
+
+            {/* Title */}
+            <h1 className="mt-6 font-serif text-[1.75rem] leading-[1.2] text-[var(--color-text-1)] sm:text-4xl xl:text-[2.75rem]">
+              {title}
+            </h1>
+
+            {/* Excerpt */}
+            {excerpt && (
+              <p className="mt-5 text-[0.9375rem] leading-relaxed text-[var(--color-text-2)]">
+                {excerpt}
+              </p>
+            )}
+
+            {/* Accent divider */}
+            <div className="mt-8 h-[2px] w-14 rounded-full bg-gradient-to-r from-[var(--color-accent)] to-transparent" />
+
+            {/* Tags */}
+            {post.tags && post.tags.length > 0 && (
+              <div className="mt-5 flex flex-wrap gap-2">
+                {post.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className={cn(
+                      'border border-[var(--color-border)] px-2.5 py-1',
+                      'font-mono text-[10px] text-[var(--color-text-3)]',
+                      'transition-colors hover:border-[var(--color-border-hover)] hover:text-[var(--color-text-2)]',
+                    )}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
       </div>
 
       {/* ── Article content ───────────────────────────────────────────────── */}
-      <div className="mx-auto max-w-[680px] px-6 py-16 lg:py-24">
-
-        {/* Back link */}
-        <Link
-          href="/blog"
-          className={cn(
-            'mb-10 inline-flex items-center gap-2',
-            'font-mono text-xs text-[var(--color-text-3)] transition-colors hover:text-[var(--color-text-1)]',
-          )}
-        >
-          <ArrowLeft size={12} aria-hidden="true" className="rtl:rotate-180" />
-          {t('backToBlog')}
-        </Link>
-
-        {/* Header */}
-        <ScrollReveal>
-          <div className="mb-3 flex flex-wrap items-center gap-3">
-            <span className="font-mono text-xs uppercase text-[var(--color-accent)]">
-              {post.category}
-            </span>
-            <span className="text-[var(--color-text-3)]" aria-hidden="true">·</span>
-            <span className="font-mono text-xs text-[var(--color-text-3)]">
-              {t('readingTime', { minutes: post.readingTime })}
-            </span>
-            <span className="text-[var(--color-text-3)]" aria-hidden="true">·</span>
-            <time
-              dateTime={post.publishedAt}
-              className="font-mono text-xs text-[var(--color-text-3)]"
-            >
-              {date}
-            </time>
-          </div>
-
-          <h1 className="font-serif text-3xl text-[var(--color-text-1)] sm:text-4xl lg:text-5xl">
-            {title}
-          </h1>
-        </ScrollReveal>
+      <div className="mx-auto max-w-[720px] px-6 py-14 lg:py-20">
 
         {/* Body */}
-        <ScrollReveal delay={0.1} className="mt-10">
+        <ScrollReveal>
           <RenderBody blocks={body} />
         </ScrollReveal>
-
-        {/* Tags */}
-        {post.tags && post.tags.length > 0 && (
-          <div className="mt-12 flex flex-wrap gap-2 border-t border-[var(--color-border)] pt-8">
-            {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="border border-[var(--color-border)] px-3 py-1 font-mono text-xs text-[var(--color-text-3)]"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
       </div>
 
       {/* ── Related posts ─────────────────────────────────────────────────── */}

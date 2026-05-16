@@ -9,6 +9,7 @@ import { Link, usePathname, useRouter } from '@/lib/navigation';
 import { Logo } from '@/components/ui/Logo';
 
 const NAV_LINKS = [
+  { key: 'home', href: '/' },
   { key: 'work', href: '/work' },
   { key: 'services', href: '/services' },
   { key: 'about', href: '/about' },
@@ -80,7 +81,7 @@ export function Header() {
           'fixed inset-x-0 top-0 z-40 transition-all duration-300',
           isScrolled
             ? 'border-b border-[var(--color-border)] bg-[var(--color-bg)]/90 py-3 backdrop-blur-md'
-            : 'bg-transparent py-5',
+            : 'bg-gradient-to-b from-[var(--color-bg)]/85 via-[var(--color-bg)]/40 to-transparent py-5',
         )}
       >
         <nav

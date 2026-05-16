@@ -19,6 +19,8 @@ export function LiquidCursor() {
     // Skip on touch/stylus devices and when reduced motion is preferred
     if (window.matchMedia('(pointer: coarse)').matches) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    // Skip on small screens (mobile)
+    if (window.matchMedia('(max-width: 1023px)').matches) return;
 
     document.body.classList.add('custom-cursor-active');
 

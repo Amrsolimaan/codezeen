@@ -124,7 +124,7 @@ export async function FeaturedWork({ locale }: HeroSectionProps) {
               const description = firstParagraph(descBlocks);
               const categoryLabel = CATEGORY_LABELS[project.category ?? ''] ?? project.category ?? '';
               const imageUrl = project.heroImage
-                ? urlFor(project.heroImage).width(900).height(675).fit('crop').url()
+                ? urlFor(project.heroImage).width(1200).quality(90).url()
                 : null;
               const imageAlt = project.heroImage?.alt ?? title;
               const slug = project.slug?.current ?? '';

@@ -107,6 +107,15 @@ export const serviceSchema = defineType({
     }),
 
     defineField({
+      name: 'techStack',
+      title: 'Technologies Used',
+      type: 'array',
+      description: 'e.g. "React", "Node.js", "PostgreSQL"',
+      of: [defineArrayMember({ type: 'string' })],
+      options: { layout: 'tags' },
+    }),
+
+    defineField({
       name: 'startingPrice',
       title: 'Starting Price',
       type: 'string',

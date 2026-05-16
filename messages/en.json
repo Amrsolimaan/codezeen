@@ -1,5 +1,6 @@
 {
   "nav": {
+    "home": "Home",
     "work": "Work",
     "services": "Services",
     "about": "About",
@@ -45,6 +46,12 @@
       "headline": "Ready to build something great?",
       "subheadline": "Tell us about your project and let's make it happen.",
       "button": "Start a Conversation"
+    },
+    "testimonials": {
+      "eyebrow": "Client Stories",
+      "title": "What Our Clients Say",
+      "subtitle": "Real feedback from the teams we've had the privilege to build with.",
+      "ratingLabel": "Rating: {rating} out of 5"
     }
   },
   "work": {
@@ -69,7 +76,20 @@
     "nextProject": "Next Project",
     "projectsCount": "{count} projects",
     "galleryLabel": "Project gallery",
-    "viewMode": "View mode"
+    "viewMode": "View mode",
+    "client": "Client",
+    "year": "Year",
+    "category": "Category",
+    "techStack": "Tech Stack",
+    "challenge": "The Challenge",
+    "solution": "Our Solution",
+    "results": "Results & Impact",
+    "overview": "Overview",
+    "downloadOn": "Download on the",
+    "getItOn": "Get it on",
+    "appStore": "App Store",
+    "playStore": "Google Play",
+    "closeImage": "Close image"
   },
   "services": {
     "meta": {
@@ -80,6 +100,17 @@
     "subtitle": "Comprehensive software solutions from strategy to launch",
     "learnMore": "Learn More",
     "noServices": "Services coming soon.",
+    "detail": {
+      "backToServices": "All Services",
+      "overview": "Overview",
+      "whatsIncluded": "What's Included",
+      "technologies": "Technologies",
+      "investment": "Investment",
+      "startingFrom": "Starting from",
+      "startProject": "Start Your Project",
+      "startProjectSub": "Ready to build? Let's discuss your requirements.",
+      "startProjectCta": "Get in Touch"
+    },
     "process": {
       "title": "How We Work",
       "subtitle": "A proven process that turns ideas into shipped products",
@@ -161,6 +192,7 @@
     "loadMore": "Load More",
     "relatedPosts": "Related Posts",
     "backToBlog": "Back to Blog",
+    "postLabel": "Blog Post",
     "filters": {
       "all": "All",
       "engineering": "Engineering",

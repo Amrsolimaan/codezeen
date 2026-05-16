@@ -1,5 +1,6 @@
 {
   "nav": {
+    "home": "الرئيسية",
     "work": "أعمالنا",
     "services": "خدماتنا",
     "about": "من نحن",
@@ -45,6 +46,12 @@
       "headline": "هل أنت مستعد لبناء شيء عظيم؟",
       "subheadline": "أخبرنا عن مشروعك ولنحقق ذلك معاً.",
       "button": "ابدأ المحادثة"
+    },
+    "testimonials": {
+      "eyebrow": "قصص عملائنا",
+      "title": "ماذا يقول عملاؤنا",
+      "subtitle": "آراء حقيقية من الفرق التي شرُفنا بالبناء معها.",
+      "ratingLabel": "التقييم: {rating} من 5"
     }
   },
   "work": {
@@ -69,7 +76,20 @@
     "nextProject": "المشروع التالي",
     "projectsCount": "{count} مشروع",
     "galleryLabel": "معرض المشروع",
-    "viewMode": "طريقة العرض"
+    "viewMode": "طريقة العرض",
+    "client": "العميل",
+    "year": "السنة",
+    "category": "التصنيف",
+    "techStack": "التقنيات",
+    "challenge": "التحدي",
+    "solution": "حلنا",
+    "results": "النتائج والأثر",
+    "overview": "نبذة عن المشروع",
+    "downloadOn": "حمّل على",
+    "getItOn": "احصل عليه من",
+    "appStore": "App Store",
+    "playStore": "Google Play",
+    "closeImage": "إغلاق الصورة"
   },
   "services": {
     "meta": {
@@ -80,6 +100,17 @@
     "subtitle": "حلول برمجية شاملة من الاستراتيجية إلى الإطلاق",
     "learnMore": "اعرف المزيد",
     "noServices": "الخدمات قريباً.",
+    "detail": {
+      "backToServices": "جميع الخدمات",
+      "overview": "نظرة عامة",
+      "whatsIncluded": "ما يشمله",
+      "technologies": "التقنيات",
+      "investment": "الاستثمار",
+      "startingFrom": "يبدأ من",
+      "startProject": "ابدأ مشروعك",
+      "startProjectSub": "هل أنت مستعد؟ لنناقش متطلباتك.",
+      "startProjectCta": "تواصل معنا"
+    },
     "process": {
       "title": "كيف نعمل",
       "subtitle": "منهجية مجربة تحوّل الأفكار إلى منتجات مشحونة",
@@ -161,6 +192,7 @@
     "loadMore": "تحميل المزيد",
     "relatedPosts": "مقالات ذات صلة",
     "backToBlog": "العودة إلى المدونة",
+    "postLabel": "مقال",
     "filters": {
       "all": "الكل",
       "engineering": "هندسة",

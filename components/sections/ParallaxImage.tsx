@@ -34,9 +34,9 @@ export function ParallaxImage({ src, alt, className, sizes }: ParallaxImageProps
     const ctx = gsap.context(() => {
       gsap.fromTo(
         inner,
-        { yPercent: -12 },
+        { yPercent: -5 },
         {
-          yPercent: 12,
+          yPercent: 5,
           ease: 'none',
           scrollTrigger: {
             trigger: container,
@@ -53,16 +53,14 @@ export function ParallaxImage({ src, alt, className, sizes }: ParallaxImageProps
 
   return (
     // overflow-hidden clips the image during parallax movement
-    <div ref={containerRef} className={cn('overflow-hidden', className)}>
+    <div ref={containerRef} className={cn('relative overflow-hidden', className)}>
       {/*
-        Inner wrapper is 124% tall and starts 12% above container top.
-        This gives 12% overflow on each side so the parallax movement
-        (±12%) never reveals empty edges.
+        Inner wrapper maintains aspect ratio without extra height.
+        Parallax effect is subtle to avoid cropping.
       */}
       <div
         ref={innerRef}
-        className="relative w-full"
-        style={{ height: '124%', marginTop: '-12%' }}
+        className="relative h-full w-full"
       >
         <Image
           src={src}
@@ -70,6 +68,7 @@ export function ParallaxImage({ src, alt, className, sizes }: ParallaxImageProps
           fill
           className="object-cover"
           sizes={sizes ?? '(max-width: 768px) 100vw, 42vw'}
+          quality={90}
         />
       </div>
     </div>

@@ -1,5 +1,5 @@
 import '@/styles/globals.css';
-import { Link } from '@/lib/navigation';
+import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
 export default function NotFound() {
@@ -22,7 +22,7 @@ export default function NotFound() {
         </p>
 
         <Link
-          href="/"
+          href="/en"
           className="flex items-center gap-2 border border-[var(--color-border)] px-6 py-3 font-mono text-sm text-[var(--color-text-2)] transition-colors hover:border-[var(--color-border-hover)] hover:text-[var(--color-text-1)]"
         >
           <ArrowLeft size={14} aria-hidden="true" />

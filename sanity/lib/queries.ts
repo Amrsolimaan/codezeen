@@ -43,19 +43,26 @@ export const PROJECT_BY_SLUG_QUERY = defineQuery(`
     _createdAt,
     title,
     slug,
+    client,
+    shortDesc,
     category,
     tags,
     year,
-    heroImage { ..., asset-> },
-    gallery[] { ..., asset-> },
+    status,
+    heroImage { ..., asset->{ _id, url, metadata { lqip, dimensions } } },
+    gallery[]{ ..., asset->{ _id, url, metadata { lqip } } },
     description,
+    challenge,
+    solution,
+    results,
     techStack[] { name, icon },
     metrics[] { label, value },
     liveUrl,
     githubUrl,
     dribbbleUrl,
-    featured,
-    status
+    appStoreUrl,
+    playStoreUrl,
+    featured
   }
 `);
 
@@ -64,7 +71,8 @@ export const PROJECT_NAV_QUERY = defineQuery(`
   | order(order asc) {
     _id,
     title,
-    slug
+    slug,
+    heroImage { ..., asset->{ _id, url, metadata { lqip } } }
   }
 `);
 
@@ -124,9 +132,15 @@ export const SERVICE_BY_SLUG_QUERY = defineQuery(`
     shortDesc,
     longDesc,
     features,
+    techStack,
     startingPrice,
-    featured
+    featured,
+    order
   }
+`);
+
+export const SERVICE_SLUGS_QUERY = defineQuery(`
+  *[_type == "service"] { "slug": slug.current }
 `);
 
 // ─── Blog ─────────────────────────────────────────────────────────────────────
@@ -244,7 +258,7 @@ export const FEATURED_TESTIMONIALS_QUERY = defineQuery(`
     role,
     company,
     quote,
-    avatar { ..., asset-> },
+    avatar { ..., asset->{ _id, url, metadata { lqip } } },
     rating,
     project->{ title, slug }
   }

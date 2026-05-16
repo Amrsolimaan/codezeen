@@ -33,6 +33,27 @@ export const projectSchema = defineType({
     }),
 
     defineField({
+      name: 'client',
+      title: 'Client Name',
+      type: 'object',
+      fields: [
+        defineField({ name: 'en', title: 'English', type: 'string' }),
+        defineField({ name: 'ar', title: 'Arabic', type: 'string' }),
+      ],
+    }),
+
+    defineField({
+      name: 'shortDesc',
+      title: 'Short Description',
+      description: 'One sentence — shown in hero overlay and project cards',
+      type: 'object',
+      fields: [
+        defineField({ name: 'en', title: 'English', type: 'string' }),
+        defineField({ name: 'ar', title: 'Arabic', type: 'string' }),
+      ],
+    }),
+
+    defineField({
       name: 'year',
       title: 'Year Delivered',
       type: 'number',
@@ -146,6 +167,57 @@ export const projectSchema = defineType({
     }),
 
     defineField({
+      name: 'challenge',
+      title: 'The Challenge',
+      description: 'What problem did the client face?',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'en', title: 'English', type: 'array',
+          of: [defineArrayMember({ type: 'block' })],
+        }),
+        defineField({
+          name: 'ar', title: 'Arabic', type: 'array',
+          of: [defineArrayMember({ type: 'block' })],
+        }),
+      ],
+    }),
+
+    defineField({
+      name: 'solution',
+      title: 'Our Solution',
+      description: 'How did Codezeen solve it?',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'en', title: 'English', type: 'array',
+          of: [defineArrayMember({ type: 'block' })],
+        }),
+        defineField({
+          name: 'ar', title: 'Arabic', type: 'array',
+          of: [defineArrayMember({ type: 'block' })],
+        }),
+      ],
+    }),
+
+    defineField({
+      name: 'results',
+      title: 'Results & Impact',
+      description: 'Measurable outcomes and business impact',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'en', title: 'English', type: 'array',
+          of: [defineArrayMember({ type: 'block' })],
+        }),
+        defineField({
+          name: 'ar', title: 'Arabic', type: 'array',
+          of: [defineArrayMember({ type: 'block' })],
+        }),
+      ],
+    }),
+
+    defineField({
       name: 'techStack',
       title: 'Tech Stack',
       type: 'array',
@@ -207,6 +279,8 @@ export const projectSchema = defineType({
     defineField({ name: 'liveUrl', title: 'Live URL', type: 'url' }),
     defineField({ name: 'githubUrl', title: 'GitHub URL', type: 'url' }),
     defineField({ name: 'dribbbleUrl', title: 'Dribbble / Behance URL', type: 'url' }),
+    defineField({ name: 'appStoreUrl', title: 'App Store URL', type: 'url' }),
+    defineField({ name: 'playStoreUrl', title: 'Play Store URL', type: 'url' }),
 
     defineField({
       name: 'featured',
