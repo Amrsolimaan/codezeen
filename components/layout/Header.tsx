@@ -27,22 +27,19 @@ export function Header() {
   const router = useRouter();
 
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [menuOpenForPath, setMenuOpenForPath] = useState<string | null>(null);
+
+  const isMenuOpen = menuOpenForPath === pathname;
 
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, 'change', (latest) => {
     setIsScrolled(latest > 80);
   });
 
-  // Close mobile menu when navigating
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [pathname]);
-
   // Close on Escape
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setIsMenuOpen(false);
+      if (e.key === 'Escape') setMenuOpenForPath(null);
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -154,7 +151,7 @@ export function Header() {
             {/* Hamburger — mobile */}
             <button
               type="button"
-              onClick={() => setIsMenuOpen((v) => !v)}
+              onClick={() => setMenuOpenForPath(isMenuOpen ? null : pathname)}
               aria-expanded={isMenuOpen}
               aria-controls="mobile-nav"
               aria-label={isMenuOpen ? tCommon('closeMenu') : tCommon('openMenu')}
@@ -197,11 +194,11 @@ export function Header() {
                 >
                   <Link
                     href={href}
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={() => setMenuOpenForPath(null)}
                     aria-current={isActive(href) ? 'page' : undefined}
                     className={cn(
                       'flex items-center border-b border-[var(--color-border)] py-5',
-                      'text-[2rem] font-semibold leading-none tracking-tight',
+                      'text-[clamp(1.25rem,5vw,2rem)] font-semibold leading-none tracking-tight',
                       'transition-colors duration-150',
                       isActive(href)
                         ? 'text-[var(--color-text-1)]'
@@ -225,7 +222,7 @@ export function Header() {
                 type="button"
                 onClick={() => {
                   switchLocale();
-                  setIsMenuOpen(false);
+                  setMenuOpenForPath(null);
                 }}
                 aria-label={`Switch to ${otherLocale === 'ar' ? 'Arabic' : 'English'}`}
                 className="min-h-[44px] px-2 text-sm font-semibold text-[var(--color-text-2)] hover:text-[var(--color-text-1)] transition-colors"
@@ -235,7 +232,7 @@ export function Header() {
 
               <Link
                 href="/contact"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => setMenuOpenForPath(null)}
                 className={cn(
                   'inline-flex h-12 items-center justify-center rounded-full px-8',
                   'bg-[var(--color-accent)] text-base font-semibold text-white',

@@ -247,7 +247,7 @@ export function TeamGrid({ members, locale, emptyMessage }: TeamGridProps) {
   }
 
   return (
-    <ul className="grid w-full grid-cols-1 gap-6 sm:grid-cols-[repeat(2,minmax(280px,1fr))] lg:grid-cols-[repeat(3,minmax(280px,1fr))]" role="list">
+    <ul className="grid w-full grid-cols-[minmax(280px,1fr)] gap-6 sm:grid-cols-[repeat(2,minmax(280px,1fr))] lg:grid-cols-[repeat(3,minmax(280px,1fr))]" role="list">
       {members.map((member) => (
         <TeamMemberCard
           key={member._id}
