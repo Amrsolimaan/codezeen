@@ -69,9 +69,21 @@ body {
 }
 
 /* ─── Liquid Cursor ───────────────────────────────────────────────────────── */
-@media (pointer: coarse) {
-  .liquid-cursor,
-  .liquid-cursor-dot { display: none; }
+
+/*
+ * Hidden by default — JS adds `custom-cursor-active` on body only when
+ * the device is confirmed to be pointer:fine AND ≥1024px AND not reduced-motion.
+ * This prevents the circle from flashing at (0,0) on first paint on any device.
+ */
+.liquid-cursor,
+.liquid-cursor-dot {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.custom-cursor-active .liquid-cursor,
+body.custom-cursor-active .liquid-cursor-dot {
+  opacity: 1;
 }
 
 .liquid-cursor {
@@ -82,7 +94,6 @@ body {
   height: 12px;
   border-radius: 50%;
   border: 1.5px solid rgba(59, 125, 216, 0.6);
-  pointer-events: none;
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -116,7 +127,6 @@ body {
   height: 4px;
   border-radius: 50%;
   background: rgba(59, 125, 216, 0.8);
-  pointer-events: none;
   z-index: 9999;
   will-change: transform;
 }
