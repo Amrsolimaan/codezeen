@@ -28,7 +28,7 @@ export async function POST(request: Request) {
 
     const resend = new Resend(process.env.RESEND_API_KEY);
 
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: 'onboarding@resend.dev',
       to: 'codezeeen@gmail.com',
       replyTo: data.email,
@@ -43,6 +43,11 @@ export async function POST(request: Request) {
         data.message,
       ].join('\n'),
     });
+
+    if (error) {
+      console.error('[contact] Resend Error:', error);
+      return NextResponse.json({ error: error.message }, { status: 400 });
+    }
 
     return NextResponse.json({ success: true });
   } catch (err) {
