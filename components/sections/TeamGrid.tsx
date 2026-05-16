@@ -238,7 +238,6 @@ function TeamMemberCard({
     </li>
   );
 }
-
 export function TeamGrid({ members, locale, emptyMessage }: TeamGridProps) {
   const [flippedId, setFlippedId] = useState<string | null>(null);
 
